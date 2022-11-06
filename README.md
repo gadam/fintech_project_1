@@ -48,6 +48,7 @@ After looking at the correlations, we calculated the daily change percentages fo
 Finally, we attempted to predict prices via the following approach:
 1. We split the historical data obtained from **YFinance** into a `training` dataframe and a `testing/control` dataframe.  The contents of the `training` dataframe included historical data up to 2 months prior to current date and the `testing/control` dataframe contained the remaining 2 months worth of data.  
     - We chose a relatively short window to forecast because the long term trend of the currencies showed significant volatility making long term predictions difficult
+
 ![Split Dataset](./images/TrainingTestSplit.png)
 2. We utilised the `training` dataframe on the **Monte Carlo** simulation algorithm with 1000 simulations and forecast proces for each currency targeting 60 days in the future 
 3. We then used the same `training` dataframe to train the **Meta Prophet API** to forecast prices for a similar period
@@ -103,7 +104,7 @@ Finally, we attempted to predict prices via the following approach:
     The actual value is $149.28.
 
 # Conclusions
-The prediction models are not perfect.  THe **Monte Carlo** simulations deliver a range that is too wide to be useful for the short forecasting period that we have selected and can be enhanced to narrow the forecast to one standard deviation.  **Meta's Prophet** may perform better onceits configuration parameters are better understood and error correction introduced or perhaps even be replaced with other models available in the industry.
+The prediction models are not perfect.  The **Monte Carlo** simulations deliver a range that is too wide to be useful for the short forecasting period that we have selected and can be enhanced to narrow the forecast to one standard deviation.  **Meta's Prophet** may perform better once its configuration parameters are better understood and error correction introduced or perhaps even be replaced with other models available in the industry, particularly in order to handle the forecasts going negative.
 
 # Acknowledgments
 - [Pandas Library](https://pandas.pydata.org/docs/)
